@@ -25,3 +25,7 @@ public:
 	void SSign(CRSTR sign);
 	void Date(int *date);
 	int* Date();
+
+	friend std::istream& operator>>(std::istream& in, Sign& s);
+	friend std::ostream& operator<<(std::ostream& out, CRSIGN s);
+};
