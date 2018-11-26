@@ -1,8 +1,11 @@
 #pragma once
-class Exception
-{
+#include <string>
+
+class Exception {
+private:
+	std::string message;
 public:
-	Exception();
-	~Exception();
+	explicit Exception(const std::string &message = "Exception");
+	const std::string& what() const;
 };
 
