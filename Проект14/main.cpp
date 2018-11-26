@@ -33,3 +33,31 @@ int main() {
 				cout << "\n" << e.what();
 			}
 		}
+		else if (choice == 2) {
+			cout << "¬ведите мес€ц: ";
+			int month;
+			cin >> month;
+			int i;
+			for (i = 0; i < size; ++i) {
+				if (signs[i].Date()[1] == month) {
+					cout << "\n" << signs[i];
+				}
+			}
+			if (i > size) {
+				cout << "NOT FOUND";
+			}
+		}
+		else if (choice == 3) {
+			int index;
+			do {
+				cout << "¬ведите индекс: ";
+				cin >> index;
+			} while (index < 0 || index >= 8);
+			cout << "»м€ ‘амили€ «нак DD MM YY\n";
+			cin >> signs[index];
+		}
+		else if (choice == 4) {
+			return 0;
+		}
+	}
+}
