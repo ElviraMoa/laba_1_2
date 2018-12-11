@@ -1,6 +1,6 @@
 #include "Sign.hpp"
 
-Sign::Sign(CRSTR name, CRSTR surname, CRSTR, int * date) :
+Sign::Sign(const std::string& name, const std::string& surname, const std::string&, int * date) :
 	name(name), surname(surname), sign(sign) {
 	if (date != nullptr) {
 		this->date[0] = date[0];
@@ -15,7 +15,7 @@ Sign::Sign(CRSTR name, CRSTR surname, CRSTR, int * date) :
 	std::cout << "\nконструктор Sign";
 }
 
-Sign::Sign(CRSIGN s) :
+Sign::Sign(const Sign& s) :
 	name(s.name), surname(s.surname), sign(s.sign) {
 	date[0] = s.date[0];
 	date[1] = s.date[1];
@@ -25,7 +25,7 @@ Sign::Sign(CRSIGN s) :
 
 Sign::~Sign() { std::cout << "\nдеструктор Sign"; }
 
-Sign& Sign::operator=(CRSIGN s) {
+Sign& Sign::operator=(const Sign& s) { //оператор присваивания
 	name = s.name;
 	surname = s.surname;
 	sign = s.sign;
@@ -34,10 +34,10 @@ Sign& Sign::operator=(CRSIGN s) {
 	date[2] = s.date[2];
 	return *this;
 }
-
-CRSTR Sign::Name()const { return name; }
-CRSTR Sign::Surname()const { return surname; }
-CRSTR Sign::SSign()const { return sign; }
+//геттеры и сеттеры
+const std::string& Sign::Name()const { return name; }
+const std::string& Sign::Surname()const { return surname; }
+const std::string& Sign::SSign()const { return sign; }
 int* Sign::Date() {
 	return date;
 }
@@ -55,26 +55,26 @@ void Sign::Date(int *date) {
 	}
 }
 
-void Sign::SSign(CRSTR sign) {
+void Sign::SSign(const std::string& sign) {
 	this->sign = sign;
 }
 
-void Sign::Name(CRSTR name) {
+void Sign::Name(const std::string& name) {
 	this->name = name;
 }
 
-void Sign::Surname(CRSTR surname) {
+void Sign::Surname(const std::string& surname) {
 	this->surname = surname;
 }
 
-std::istream& operator>>(std::istream& in, Sign& s) {
+std::istream& operator>>(std::istream& in, Sign& s) { //оператор ввода
 	if (!(in >> s.name >> s.surname >> s.sign >> s.date[0] >> s.date[1] >> s.date[2])) {
 		throw Exception("Некорректный ввод");
 	}
 	return in;
 }
 
-std::ostream& operator<<(std::ostream& out, CRSIGN s) {
+std::ostream& operator<<(std::ostream& out, const Sign& s) { //оператор вывода
 	out << "Имя: " << s.name
 		<< "\nФамилия: " << s.surname
 		<< "\nЗнак: " << s.sign

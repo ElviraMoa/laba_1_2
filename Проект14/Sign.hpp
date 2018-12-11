@@ -1,31 +1,28 @@
 #pragma once
 #include "Exception.hpp"
 #include <iostream>
-#define CRSTR const std::string&
-#define STR std::string
-#define CRSIGN const Sign&
 
 class Sign {
 private:
-	STR name;
-	STR surname;
-	STR sign;
-	int date[3];
+	std::string name; //имя
+	std::string surname; //фамилия
+	std::string sign; //знак зодиака
+	int date[3]; //дата рождения
 public:
-	Sign(CRSTR name = "", CRSTR surname = "", CRSTR sign = "", int* date = nullptr);
-	Sign(CRSIGN s);
+	Sign(const std::string& name = "", const std::string& surname = "", const std::string& sign = "", int* date = nullptr);
+	Sign(const Sign& s);
 	~Sign();
-	Sign& operator=(CRSIGN s);
-							  
-	CRSTR Name() const;
-	void Name(CRSTR name);
-	CRSTR Surname()const;
-	void Surname(CRSTR surname);
-	CRSTR SSign()const;
-	void SSign(CRSTR sign);
+	Sign& operator=(const Sign& s); // оператор присваивания
+	 //геттеры и сеттеры						  
+	const std::string& Name() const;
+	void Name(const std::string& name);
+	const std::string& Surname()const;
+	void Surname(const std::string& surname);
+	const std::string& SSign()const;
+	void SSign(const std::string& sign);
 	void Date(int *date);
 	int* Date();
 
-	friend std::istream& operator>>(std::istream& in, Sign& s);
-	friend std::ostream& operator<<(std::ostream& out, CRSIGN s);
+	friend std::istream& operator>>(std::istream& in, Sign& s); // оператор ввода
+	friend std::ostream& operator<<(std::ostream& out, const Sign& s); //оператор вывода
 };

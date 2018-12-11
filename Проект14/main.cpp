@@ -3,19 +3,20 @@
 using namespace std;
 
 int main() {
-	const int size = 8;
+	const int size = 8; //размер
 	setlocale(LC_ALL, "");
-	Sign signs[size];
+	Sign signs[size]; //массив знаков
 	int choice;
 	while (true) {
 		cout << "\n1. Считать\n2. Поиск\n3. Изменить\n3. Выход\n_ ";
 		cin >> choice;
-		if (choice == 1) {
+		switch (choice) {
+		case 1: {
 			cout << "Имя Фамилия Знак DD MM YY\n";
-			try {
+			try { //считываем данные
 				for (int i = 0; i < size; ++i) {
 					cin >> signs[i];
-				}
+				} /*Сортируем*/
 				int j, n = size;
 				do {
 					int nn = 0;
@@ -33,7 +34,7 @@ int main() {
 				cout << "\n" << e.what();
 			}
 		}
-		else if (choice == 2) {
+		case 2: {
 			cout << "Введите месяц: ";
 			int month;
 			cin >> month;
@@ -47,16 +48,16 @@ int main() {
 				cout << "NOT FOUND";
 			}
 		}
-		else if (choice == 3) {
+		case 3: {
 			int index;
 			do {
 				cout << "Введите индекс: ";
 				cin >> index;
-			} while (index < 0 || index >= 8);
+			} while (index < 0 || index >= 8); //защита от некорректного ввода
 			cout << "Имя Фамилия Знак DD MM YY\n";
 			cin >> signs[index];
 		}
-		else if (choice == 4) {
+		case 4:
 			return 0;
 		}
 	}
