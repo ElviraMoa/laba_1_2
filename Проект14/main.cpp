@@ -1,22 +1,22 @@
-#include "SIGN.hpp"
+п»ї#include "SIGN.hpp"
 
 using namespace std;
 
 int main() {
-	const int size = 8; //размер
+	const int size = 8; //СЂР°Р·РјРµСЂ
 	setlocale(LC_ALL, "");
-	Sign signs[size]; //массив знаков
+	Sign signs[size]; //РјР°СЃСЃРёРІ Р·РЅР°РєРѕРІ
 	int choice;
 	while (true) {
-		cout << "\n1. Считать\n2. Поиск\n3. Изменить\n3. Выход\n_ ";
+		cout << "\n1. РЎС‡РёС‚Р°С‚СЊ\n2. РџРѕРёСЃРє\n3. РР·РјРµРЅРёС‚СЊ\n3. Р’С‹С…РѕРґ\n_ ";
 		cin >> choice;
 		switch (choice) {
 		case 1: {
-			cout << "Имя Фамилия Знак DD MM YY\n";
-			try { //считываем данные
+			cout << "РРјСЏ Р¤Р°РјРёР»РёСЏ Р—РЅР°Рє DD MM YY\n";
+			try { //СЃС‡РёС‚С‹РІР°РµРј РґР°РЅРЅС‹Рµ
 				for (int i = 0; i < size; ++i) {
 					cin >> signs[i];
-				} /*Сортируем*/
+				} /*РЎРѕСЂС‚РёСЂСѓРµРј*/
 				int j, n = size;
 				do {
 					int nn = 0;
@@ -35,7 +35,7 @@ int main() {
 			}
 		}
 		case 2: {
-			cout << "Введите месяц: ";
+			cout << "Р’РІРµРґРёС‚Рµ РјРµСЃСЏС†: ";
 			int month;
 			cin >> month;
 			int i;
@@ -51,10 +51,10 @@ int main() {
 		case 3: {
 			int index;
 			do {
-				cout << "Введите индекс: ";
+				cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ: ";
 				cin >> index;
-			} while (index < 0 || index >= 8); //защита от некорректного ввода
-			cout << "Имя Фамилия Знак DD MM YY\n";
+			} while (index < 0 || index >= 8); //Р·Р°С‰РёС‚Р° РѕС‚ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РІРІРѕРґР°
+			cout << "РРјСЏ Р¤Р°РјРёР»РёСЏ Р—РЅР°Рє DD MM YY\n";
 			cin >> signs[index];
 		}
 		case 4:

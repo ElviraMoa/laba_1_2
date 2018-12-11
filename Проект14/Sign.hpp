@@ -1,19 +1,19 @@
-#pragma once
+п»ї#pragma once
 #include "Exception.hpp"
 #include <iostream>
 
 class Sign {
 private:
-	std::string name; //имя
-	std::string surname; //фамилия
-	std::string sign; //знак зодиака
-	int date[3]; //дата рождения
+	std::string name; //РёРјСЏ
+	std::string surname; //С„Р°РјРёР»РёСЏ
+	std::string sign; //Р·РЅР°Рє Р·РѕРґРёР°РєР°
+	int date[3]; //РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ
 public:
 	Sign(const std::string& name = "", const std::string& surname = "", const std::string& sign = "", int* date = nullptr);
 	Sign(const Sign& s);
 	~Sign();
-	Sign& operator=(const Sign& s); // оператор присваивания
-	 //геттеры и сеттеры						  
+	Sign& operator=(const Sign& s); // РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
+	 //РіРµС‚С‚РµСЂС‹ Рё СЃРµС‚С‚РµСЂС‹						  
 	const std::string& Name() const;
 	void Name(const std::string& name);
 	const std::string& Surname()const;
@@ -23,6 +23,6 @@ public:
 	void Date(int *date);
 	int* Date();
 
-	friend std::istream& operator>>(std::istream& in, Sign& s); // оператор ввода
-	friend std::ostream& operator<<(std::ostream& out, const Sign& s); //оператор вывода
+	friend std::istream& operator>>(std::istream& in, Sign& s); // РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР°
+	friend std::ostream& operator<<(std::ostream& out, const Sign& s); //РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
 };

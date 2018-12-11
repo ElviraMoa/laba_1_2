@@ -1,4 +1,4 @@
-#include "Sign.hpp"
+п»ї#include "Sign.hpp"
 
 Sign::Sign(const std::string& name, const std::string& surname, const std::string&, int * date) :
 	name(name), surname(surname), sign(sign) {
@@ -12,7 +12,7 @@ Sign::Sign(const std::string& name, const std::string& surname, const std::strin
 		this->date[1] = 0;
 		this->date[2] = 0;
 	}
-	std::cout << "\nконструктор Sign";
+	std::cout << "\nРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Sign";
 }
 
 Sign::Sign(const Sign& s) :
@@ -20,12 +20,12 @@ Sign::Sign(const Sign& s) :
 	date[0] = s.date[0];
 	date[1] = s.date[1];
 	date[2] = s.date[2];
-	std::cout << "\nконструктор копирования Sign";
+	std::cout << "\nРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ Sign";
 }
 
-Sign::~Sign() { std::cout << "\nдеструктор Sign"; }
+Sign::~Sign() { std::cout << "\nРґРµСЃС‚СЂСѓРєС‚РѕСЂ Sign"; }
 
-Sign& Sign::operator=(const Sign& s) { //оператор присваивания
+Sign& Sign::operator=(const Sign& s) { //РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	name = s.name;
 	surname = s.surname;
 	sign = s.sign;
@@ -34,7 +34,7 @@ Sign& Sign::operator=(const Sign& s) { //оператор присваивания
 	date[2] = s.date[2];
 	return *this;
 }
-//геттеры и сеттеры
+//РіРµС‚С‚РµСЂС‹ Рё СЃРµС‚С‚РµСЂС‹
 const std::string& Sign::Name()const { return name; }
 const std::string& Sign::Surname()const { return surname; }
 const std::string& Sign::SSign()const { return sign; }
@@ -67,18 +67,18 @@ void Sign::Surname(const std::string& surname) {
 	this->surname = surname;
 }
 
-std::istream& operator>>(std::istream& in, Sign& s) { //оператор ввода
+std::istream& operator>>(std::istream& in, Sign& s) { //РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР°
 	if (!(in >> s.name >> s.surname >> s.sign >> s.date[0] >> s.date[1] >> s.date[2])) {
-		throw Exception("Некорректный ввод");
+		throw Exception("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ");
 	}
 	return in;
 }
 
-std::ostream& operator<<(std::ostream& out, const Sign& s) { //оператор вывода
-	out << "Имя: " << s.name
-		<< "\nФамилия: " << s.surname
-		<< "\nЗнак: " << s.sign
-		<< "\nДата: " << s.date[0] << '/' << s.date[1] << '/' << s.date[2];
+std::ostream& operator<<(std::ostream& out, const Sign& s) { //РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
+	out << "РРјСЏ: " << s.name
+		<< "\nР¤Р°РјРёР»РёСЏ: " << s.surname
+		<< "\nР—РЅР°Рє: " << s.sign
+		<< "\nР”Р°С‚Р°: " << s.date[0] << '/' << s.date[1] << '/' << s.date[2];
 	return out;
 }
 
